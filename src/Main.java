@@ -87,11 +87,21 @@ public class Main {
         return e;
     }
 
-    public static <T> void reverseArray(T[] array) {
+
+    public static void reverseArrayInt(int[] array) {
         for (int i = 0; i < array.length / 2; i++) {
-            T next = array[i];
+            int j = array[i];
             array[i] = array[array.length - i - 1];
-            array[array.length - i - 1] = next;
+            array[array.length - i - 1] = j;
+        }
+    }
+
+
+    public static void reverseArrayString(String[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
+            String j = array[i];
+            array[i] = array[array.length - i - 1];
+            array[array.length - i - 1] = j;
         }
     }
 
@@ -100,8 +110,8 @@ public class Main {
         int sum = 0;
         String[] bow = binary.split("");
 
-        reverseArray(bow);
-        reverseArray(modulatedSuperSequence);
+        reverseArrayString(bow);
+        reverseArrayInt(modulatedSuperSequence);
 
         for (int i = 0; i < bow.length; i++) {
             if (bow[i].equals("1")) sum += modulatedSuperSequence[i];
@@ -123,7 +133,7 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         int Dt = sum * vMinus % u;
 
-        reverseArray(superGrowingSequence);
+        reverseArrayInt(superGrowingSequence);
 
         for (int i = 0; i < superGrowingSequence.length; i++) {
             if (Dt - superGrowingSequence[i] >= 0) {
